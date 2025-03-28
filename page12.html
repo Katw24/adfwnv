@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>Teste Arranjo de Figuras</title>
+    <imagetitle></imagetitle>
+  </head>
+  <body>
+    <style>
+      body { background-color: powderblue; }
+    </style>
+    <h1 class="title">Arraste a imagem na ordem correta</h1>
+    <div class="container">
+        <img
+        src="./sombra/sombra1.png"
+        alt="drag-and-drop image script"
+        title="drag-and-drop image script"
+        class="dragme"
+        id="1"
+      />
+      <img
+        src="./sombra/sombra2.png"
+        alt="drag-and-drop image script"
+        title="drag-and-drop image script"
+        class="dragme"
+      />
+      <img
+        src="./sombra/sombra3.png"
+        alt="drag-and-drop image script"
+        title="drag-and-drop image script"
+        class="dragme"
+      />
+      <img
+        src="./sombra/sombra4.png"
+        alt="drag-and-drop image script"
+        title="drag-and-drop image script"
+        class="dragme"
+      />
+      <img
+        src="./sombra/sombra5.png"
+        alt="drag-and-drop image script"
+        title="drag-and-drop image script"
+        class="dragme"
+      />
+      <img
+      src="./sombra/sombra6.png"
+      alt="drag-and-drop image script"
+      title="drag-and-drop image script"
+      class="dragme"
+    />
+    </div>
+    <div class="linkContainer">
+      <a class="link" href="./page13.html"> 
+      <img 
+        src="./outros/7604747.png"; 
+        width="11%"
+        alt="próximo"></a>
+    </div>
+  </body>
+<script>
+   let highestZ = 1; // Track highest z-index
+
+function startDrag(e) {
+  if (!e) e = window.event;
+  if (e.preventDefault) e.preventDefault();
+
+  let targ = e.target ? e.target : e.srcElement;
+  if (!targ.classList.contains("dragme")) return;
+
+  targ.style.zIndex = ++highestZ; // Bring dragged image to the front
+
+  offsetX = e.clientX;
+  offsetY = e.clientY;
+
+  coordX = parseInt(targ.style.left || 0);
+  coordY = parseInt(targ.style.top || 0);
+
+  drag = true;
+  document.onmousemove = dragDiv;
+}
+
+function dragDiv(e) {
+  if (!drag) return;
+  if (!e) e = window.event;
+
+  let targ = e.target ? e.target : e.srcElement;
+  targ.style.left = coordX + e.clientX - offsetX + "px";
+  targ.style.top = coordY + e.clientY - offsetY + "px";
+}
+
+function stopDrag() {
+  drag = false;
+}
+
+window.onload = function () {
+  document.onmousedown = startDrag;
+  document.onmouseup = stopDrag;
+};
+</script>
+</html>
