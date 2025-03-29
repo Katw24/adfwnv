@@ -7,8 +7,51 @@
   </head>
   <body>
     <style>
-      body { background-color: powderblue; }
-    </style>
+ body {
+    background-color: powderblue;
+  }
+.title {
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: sans-serif
+  }
+  .dragme {
+    position: relative;
+    cursor: move;
+    width: 246px;
+    max-width: 100%; /* Ensures images don't overflow their container */
+    height: auto; /* Maintains aspect ratio */
+  }
+
+  .draggable {
+    background-color: #ccc;
+    border: 1px solid #000;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap; /* Allows images to wrap to the next line */
+    align-items: center;
+    justify-content: center; /* Centers images horizontally */
+    gap: 10px; /* Adds space between images */
+    margin: 15px;
+  }
+  .linkContainer {
+    position: fixed;  /* Keeps it in place even when scrolling */
+    right: 10px;      /* Places it on the right side */
+    top: 50%;         /* Positions it in the vertical center */
+    transform: translateY(-50%); /* Centers it vertically */
+    padding: 0;       /* Remove unnecessary padding */
+    text-align: right; /* Ensures proper alignment */
+  }
+  .linkinicio {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  .linkinicio img {
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+  }    </style>
     <h1 class="title">Arraste a imagem na ordem correta</h1>
     <div class="container">
         <img
